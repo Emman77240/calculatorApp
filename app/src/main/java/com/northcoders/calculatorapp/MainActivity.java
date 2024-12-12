@@ -1,18 +1,13 @@
 package com.northcoders.calculatorapp;
 
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.text.DecimalFormat;
 
@@ -34,20 +29,25 @@ public class MainActivity extends AppCompatActivity {
         numberInput2 = findViewById(R.id.editTextNumber2);
         resultTextView = findViewById(R.id.textView);
 
-        // Set onClick listeners for math addition operation button
+        // Set onClick listener to calculate input values
         Button addButton = findViewById(R.id.add);
         addButton.setOnClickListener(v -> {
-            double result = Double.parseDouble(numberInput1.getText().toString()) + Double.parseDouble(numberInput2.getText().toString());
+
+            // Get user input values
+            String numberInputOne = numberInput1.getText().toString();
+            String numberInputTwo = numberInput2.getText().toString();
+
+            // Check user input for empty values
+            if(numberInputOne.isEmpty() || numberInputTwo.isEmpty()) resultTextView.setText(R.string.number_input_warning_for_empty_values);
+
+            // Calculate sum of input values
+            double result = Double.parseDouble(numberInputOne) + Double.parseDouble(numberInputTwo);
 
             // Format and display result from calculation
             DecimalFormat df = new DecimalFormat("#.##");
             resultTextView.setText(String.format("Result: %s", df.format(result)));
         });
 
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
+
     }
 }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Calculator App</string>
+    <string name="user_input_warning_for_empty_values">Please enter both numbers!</string>
 </resources>
