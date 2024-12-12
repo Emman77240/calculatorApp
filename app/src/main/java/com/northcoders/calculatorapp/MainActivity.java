@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.text.DecimalFormat;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
             // Format and display result from calculation
             DecimalFormat df = new DecimalFormat("#.##");
             resultTextView.setText(String.format("Result: %s", df.format(result)));
+        });
+
+        // Set onClick listener to clear user inputs
+        Button clearButton = findViewById(R.id.clear);
+        clearButton.setOnClickListener(v -> {
+            numberInput1.setText(R.string.empty_string);
+            numberInput2.setText(R.string.empty_string);
+            resultTextView.setText(R.string.zero_string);
         });
 
 
