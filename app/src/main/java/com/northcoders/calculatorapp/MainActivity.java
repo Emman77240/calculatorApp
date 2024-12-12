@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             String numberInputTwo = numberInput2.getText().toString();
 
             // Check user input for empty values
-            if(numberInputOne.isEmpty() || numberInputTwo.isEmpty()) resultTextView.setText(R.string.number_input_warning_for_empty_values);
+            if(numberInputOne.isEmpty() || numberInputTwo.isEmpty()) resultTextView.setText(R.string.user_input_warning_for_empty_values);
 
             // Calculate sum of input values
             double result = Double.parseDouble(numberInputOne) + Double.parseDouble(numberInputTwo);
